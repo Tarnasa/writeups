@@ -62,7 +62,7 @@ Binary files avi-png/avi-173.png and hehehe-avi/hehehe-173.png differ
 
 So what is the difference?
 Lets use python because I like python
-```
+```python
 #!/usr/bin/env python2
 
 from PIL import Image
@@ -82,7 +82,7 @@ Looking at the output, it looks like the r,g,b values differ only by at most
 1, so they are probably doing LSB stego.
 
 So lets grab the LSB of each component in r,g,b order.
-```
+```python
 s = ''
 for y in range(i1.height):
     for x in range(i1.width):
@@ -100,7 +100,7 @@ print(''.join(chr(c) for c in unbin(s)))
 Unfortunately this gives garbage.
 (I tried many other ways of ordering the bits here before figuring out the following).
 Perhaps they want us to use the differences between the two images?
-```
+```python
 for y in range(i1.height):
     for x in range(i1.width):
         p1 = i1.getpixel((x, y))
